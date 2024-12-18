@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學生基本資料管理</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>學生基本資料管理</h1>
+        
+        <!-- 導航列 -->
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-link">返回主頁</a>
+        </nav>
+
+        <!-- 搜尋區塊 -->
+        <div class="search-container">
+            <h3>搜尋學生</h3>
+            <div class="search-form">
+                <div class="form-group">
+                    <input type="text" id="searchStudent" placeholder="輸入姓名、班級或座號">
+                </div>
+                <div class="button-group">
+                    <button onclick="searchStudents()">搜尋</button>
+                    <button class="secondary" onclick="clearStudentSearch()">清除搜尋</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新增/編輯表單 -->
+        <div class="form-container">
+            <h3 id="formTitle">新增學生資料</h3>
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="grade">年級</label>
+                <select id="grade" required>
+                    <option value="">請選擇年級</option>
+                    <option value="1">一年級</option>
+                    <option value="2">二年級</option>
+                    <option value="3">三年級</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="class">班級</label>
+                <input type="number" id="class" min="1" max="20" required>
+            </div>
+            <div class="form-group">
+                <label for="number">座號</label>
+                <input type="number" id="number" min="1" max="50" required>
+            </div>
+            <div class="form-group">
+                <label for="teacher">導師</label>
+                <input type="text" id="teacher" required>
+            </div>
+            <input type="hidden" id="editStudentId" value="">
+            <div class="button-group">
+                <button id="submitBtn" onclick="saveStudent()">新增學生</button>
+                <button id="cancelBtn" class="secondary" onclick="cancelStudentEdit()" style="display: none;">取消</button>
+            </div>
+        </div>
+
+        <!-- 學生列表 -->
+        <div class="content-section">
+            <h2>學生列表</h2>
+            <div id="students-list" class="table-container"></div>
+        </div>
+    </div>
+    <script src="js/students.js"></script>
+</body>
+</html> 

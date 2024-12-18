@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>編輯輔導記錄</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>編輯輔導記錄</h1>
+        
+        <!-- 導航列 -->
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-link">返回主頁</a>
+            <a href="students.html" class="nav-link">學生基本資料管理</a>
+        </nav>
+
+        <div class="form-container">
+            <div class="form-group">
+                <label for="date">日期</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="form-group">
+                <label for="student">輔導對象</label>
+                <input type="text" id="student" required list="studentsList">
+                <datalist id="studentsList">
+                    <!-- 這裡會由 JavaScript 動態生成學生列表 -->
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="content">輔導內容</label>
+                <textarea id="content" required rows="6"></textarea>
+            </div>
+            <input type="hidden" id="editId" value="">
+            <div class="button-group">
+                <button id="submitBtn" onclick="saveRecord()">儲存記錄</button>
+                <button class="secondary" onclick="cancelEdit()">取消</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/edit.js"></script>
+</body>
+</html> 
